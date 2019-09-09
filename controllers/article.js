@@ -45,18 +45,26 @@ const articleControllers = {
     }
   },
 	list: async function(req,res,next) {
+		let pageSize = req.query.page_size || 10;
+    let currentPage = req.query.current_page || 1; 
+    // let params = [{pageSize,  currentPage}];
+    let count = await Article.count();
+    let sum = count[0].sum;
+    console.log(sum)
+
 		try{
-			let article = await Article.all()
-			.where({})
+			let article = await Article
+			.pagination(pageSize, currentPage)
 			.leftJoin('classify', 'article.classify_id', '=', 'classify.id')
       .select('article.title',{classify_name: 'classify.name'},'article.created_time','article.id')
-			res.locals.article = article;
-			res.render('admin/article.tpl',res.locals);
-			// res.json({
-			// 	code:200,
-			// 	message:'获取成功',
-			// 	data:article,
-			// })
+			.orderBy('id', 'desc');
+			// res.locals.article = article;
+			// res.render('admin/article.tpl',res.locals);
+			res.json({
+				code:200,
+				message:'获取成功',
+				data:article,
+			})
 		}catch(err){
 			console.log(err);
 			// res.json({
@@ -126,6 +134,19 @@ const articleControllers = {
 			// 	message:'获取成功',
 			// 	data:article,
 			// })
+		}catch(err){
+			console.log(err);
+			res.json({
+				code:0,
+				message:'获取失败', 
+			})
+		}
+	},
+	addArticle: async function(req,res,next){
+		try{
+			const article = await Classify.all();
+			res.locals.article = article;
+			res.render('admin/article_create.tpl',res.locals);
 		}catch(err){
 			console.log(err);
 			res.json({

@@ -28,7 +28,7 @@
               <a class="page-nav-item" href="/admin/classify">分类管理</a>
             </li>
             <li class="page-nav active">
-              <a class="page-nav-item">文章管理</a>
+              <a class="page-nav-item button" style="cursor: pointer;">文章管理</a>
               <a class="page-nav-item child" href="/admin/article">文章列表</a>
               <a class="page-nav-item child" href="/admin/article/create">新建文章</a>
             </li>
@@ -44,6 +44,21 @@
   </div>
 
     {% block js %}
-    {% endblock %}
+<script src="/javascripts/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+  const PAGE = {
+    init: function() {
+      this.bind();
+    },
+    bind: function() {
+      $('.page-nav-item.button').bind('click',this.handleActive);
+    },
+    handleActive: function(e) {
+     $('.page-nav').toggleClass("active")
+    }
+  }
+  PAGE.init();
+</script>
+{% endblock %}
 </body>
 </html>

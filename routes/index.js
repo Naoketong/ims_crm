@@ -40,9 +40,7 @@ router.get('/admin/classify/create',/*authMiddleware.mustLogin,*/ function(req, 
 
 
 router.get('/admin/article',articleController.list);
-router.get('/admin/article/create', function(req, res, next) {
-  res.render('admin/article_create');
-});
+router.get('/admin/article/create',articleController.addArticle);
 router.get('/admin/article/:id/edit',articleController.classify);
 
 module.exports = router;

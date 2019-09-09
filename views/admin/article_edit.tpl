@@ -37,7 +37,7 @@
       <!-- <textarea class="article-input text"></textarea> -->
     </div>
     
-    <div class="new-button" id="articleSubmit">新建</div>
+    <div class="new-button" id="articleSubmit">编辑</div>
   
 
   </ul>

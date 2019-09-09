@@ -22,42 +22,39 @@ const PAGE = {
 
     let title = $('#articleTitle').val();  
     let classify_id =  PAGE.data.classify_id;
-    console.log(title,classify_id)
+    
 
 
     // let content = CKEDITOR.instances.editor2.getData();
-    // console.log(classify_id)
-    // let password = $('#userPassword').val();
-    // if(!name || !phone || !password){
-    //   alert('请输入必要参数a');
-    //   return
-    // }
+    let content = CKEDITOR.instances.editor1.getData();
 
-    // console.log(name, phone, password)
+    if(!title || !classify_id || !content){
+      alert('请输入必要参数a');
+      return
+    }
 
-    // $.ajax({
-    //     url: '/api/user/' + id,
-    //     data: { name, phone, password },
-    //     type: 'PUT',
-    //     beforeSend: function() {
-    //       $("#userSubmit").attr("disabled",true);
-    //     },
-
-    //     success: function(data) {
-    //       if(data.code === 200){
-    //         alert('编辑成功！')
-    //         location.href = '/admin/user'
-    //       }else{
-    //         alert(data.message)
-    //       }
-    //     },
-    //     error: function(err) {
-    //       console.log(err)
-    //     },
-    //     complete: function() {
-    //       $("#userSubmit").attr("disabled",false);
-    //     }
-    // })
+    $.ajax({
+        url: '/api/article/' + id,
+        data: { title, classify_id, content },
+        type: 'PUT',
+        beforeSend: function() {
+          $("#articleSubmit").attr("disabled",true);
+        },
+        success: function(data) {
+          if(data.code === 200){
+            alert('编辑成功！')
+            location.href = '/admin/article'
+          }else{
+            alert(data.message)
+          }
+        },
+        error: function(err) {
+          console.log(err)
+        },
+        complete: function() {
+          $("#articleSubmit").attr("disabled",false);
+        }
+    })
   }
 }
 

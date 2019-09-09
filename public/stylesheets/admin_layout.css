@@ -298,3 +298,28 @@ a{
 	text-align: center;
 	text-align-last: center;
 }
+
+.paging-list{
+	font-size: 0;
+	margin-top: 20px;
+}
+.paging-item{
+	display: inline-block;
+	vertical-align: top;
+	width: 30px;
+	height: 30px;
+	background-color: #fff;
+	border:1px solid #5b93ff;
+	font-size: 15px;
+	line-height: 30px;
+	margin-right: 5px;
+	text-align: center;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.paging-item:hover{
+	border-color: #fff;
+	background-color: #5b93ff;
+	color: #fff;
+	transform: .2s all ;
+}
