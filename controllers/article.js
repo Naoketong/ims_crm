@@ -50,21 +50,38 @@ const articleControllers = {
     // let params = [{pageSize,  currentPage}];
     let count = await Article.count();
     let sum = count[0].sum;
-    console.log(sum)
+    let pageNumber = Math.ceil(sum / pageSize);
+    // let pageArrayNew = new Array(pageNumber).fill('').map((data,index)=> index + 1);
+    let pageArray = new Array(pageNumber).fill('').map((data,index)=> index + 1);
+   
 
+
+
+
+// let pageArray = pageArrayNew.map((data, index)=> {
+// 	return {data}
+// });
+
+    res.locals.pagination = {
+    	total: sum,
+    	pageSize: pageSize,
+    	current:currentPage,
+    	pageArray: pageArray
+    }
+    console.log(res.locals.pagination)
 		try{
 			let article = await Article
 			.pagination(pageSize, currentPage)
 			.leftJoin('classify', 'article.classify_id', '=', 'classify.id')
       .select('article.title',{classify_name: 'classify.name'},'article.created_time','article.id')
 			.orderBy('id', 'desc');
-			// res.locals.article = article;
-			// res.render('admin/article.tpl',res.locals);
-			res.json({
-				code:200,
-				message:'获取成功',
-				data:article,
-			})
+			res.locals.article = article;
+			res.render('admin/article.tpl',res.locals);
+			// res.json({
+			// 	code:200,
+			// 	message:'获取成功',
+			// 	data:article,
+			// })
 		}catch(err){
 			console.log(err);
 			// res.json({

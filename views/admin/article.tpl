@@ -28,11 +28,13 @@
 		<li class="paging-item" data-index="{{val.currentPage}}">{{val.currentPage }}</li>
 		{% endfor %}
 	</ul> -->
+	{% for val in pagination.pageArray.length   %}
 		<ul class="paging-list">
-			<li class="paging-item" data-index="1">1</li>
-			<li class="paging-item" data-index="2">2</li>
-			<li class="paging-item" data-index="3">3</li>
+			{% for val in pagination.pageArray  %}
+			<li class="paging-item">{{pagination.pageArray}}</li>
+			{% endfor %}}
 		</ul>
+		{% endfor %}
 </div>
 {% endblock %}
 
