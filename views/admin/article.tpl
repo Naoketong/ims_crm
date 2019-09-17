@@ -43,26 +43,14 @@
 <script type="text/javascript">
 	const PAGE = {
 		data:{
-			// pagination: {
-   //      total: 0,
-   //      currentPage: 1,
-   //      pageSize: 10
-   //    },
 		},
 	  init: function() {
 	    this.bind();
-	    // this.paging();
 	  },
 	  bind: function() {
 	    $('.items-operation.del').bind('click',this.handleDel);
 	    $('.paging-item').bind('click',this.paging)
 	  },
-	  // paging: function(e){
-	  // 	let arr = e.target.dataset.index;
-	  // 	PAGE.data.currentPage = arr;
-	  // 	console.log(PAGE.data.currentPage)
-
-	  // },
 	  handleDel: function(e) {
 	    let id = e.target.dataset.index;
 	    id = Number(id);

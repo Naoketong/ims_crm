@@ -1,5 +1,5 @@
 html,body{
-  background: #313639;
+  background: #f3f3f3;
 }
 .form-section{
   position: relative;
@@ -49,9 +49,10 @@ html,body{
   height: 40px;
   text-align: center;
   font-size: 16px;
-  background:#2a4b6d;
+  background:#0076fe;
   border:none;
   outline: none;
   color: #fff;
   cursor: pointer;
+  border-radius: 4px;
 }

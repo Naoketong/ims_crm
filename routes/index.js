@@ -3,7 +3,7 @@ var router = express.Router();
 var userController = require('./../controllers/user.js');
 var classifyrController = require('./../controllers/classify.js');
 var articleController = require('./../controllers/article.js');
-
+var authController = require('./../controllers/auth.js');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -20,7 +20,7 @@ router.get('/admin/login', function(req, res, next) {
 
 router.get('/admin/user',userController.list);
 router.get('/admin/user/:id/edit',/*authMiddleware.mustLogin,*/ function(req, res, next) {
-  res.render('admin/user_edit');
+  res.render('admin/user_edit');//userController.updata
 });
 router.get('/admin/user/create',/*authMiddleware.mustLogin,*/ function(req, res, next) {
   res.render('admin/user_create');
@@ -42,5 +42,7 @@ router.get('/admin/classify/create',/*authMiddleware.mustLogin,*/ function(req, 
 router.get('/admin/article',articleController.list);
 router.get('/admin/article/create',articleController.addArticle);
 router.get('/admin/article/:id/edit',articleController.classify);
+
+router.get('/admin/login', authController.renderLogin);
 
 module.exports = router;

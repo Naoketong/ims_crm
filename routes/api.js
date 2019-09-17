@@ -4,6 +4,7 @@ var router = express.Router();
 let userControllers = require('./../controllers/user')
 let articleControllers = require('./../controllers/article')
 let classifyControllers = require('./../controllers/classify')
+let authController = require('./../controllers/auth.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -31,6 +32,9 @@ router.put('/classify/:id' ,classifyControllers.updata);
 // router.get('/classify/:id' ,classifyControllers.show)
 
 router.delete('/classify/:id' ,classifyControllers.delete);
+
+// 登录
+router.post('/login',authController.login )
 
 
 

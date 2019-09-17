@@ -6,6 +6,7 @@ const PAGE = {
     $('#userSubmit').bind('click',this.handleSubmit);
   },
   handleSubmit: function() {
+    // console.log(13)
     let phone = $('#userPhone').val();
     let password = $('#userPassword').val();
 

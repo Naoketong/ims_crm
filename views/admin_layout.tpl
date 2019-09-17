@@ -14,7 +14,7 @@
     	<div class="page-logo">
     		<img src="https://files.porsche.cn/filestore/image/multimedia/none/875d5e3d-6763-47fe-bc52-809142d53274/svg/d4c766d7-7761-11e7-99c7-0019999cd470/porsche-svg.svg">
     	</div>
-    	<div class="page-headimg"><!-- <img src="../images/user.png"> --></div>
+    	<!-- <div class="page-headimg"><img src="../images/user.png"></div> -->
     	<div class="page-quit">退出系统</div>
     </header>
     <div class="page-body">
@@ -27,7 +27,7 @@
             <li>
               <a class="page-nav-item" href="/admin/classify">分类管理</a>
             </li>
-            <li class="page-nav active">
+            <li class="page-nav">
               <a class="page-nav-item button" style="cursor: pointer;">文章管理</a>
               <a class="page-nav-item child" href="/admin/article">文章列表</a>
               <a class="page-nav-item child" href="/admin/article/create">新建文章</a>
@@ -44,21 +44,8 @@
   </div>
 
     {% block js %}
-<script src="/javascripts/jquery-3.3.1.min.js"></script>
-<script type="text/javascript">
-  const PAGE = {
-    init: function() {
-      this.bind();
-    },
-    bind: function() {
-      $('.page-nav-item.button').bind('click',this.handleActive);
-    },
-    handleActive: function(e) {
-     $('.page-nav').toggleClass("active")
-    }
-  }
-  PAGE.init();
-</script>
-{% endblock %}
+    <script src="/javascripts/jquery-3.3.1.min.js"></script>
+    {% endblock %}
+  <script src="/javascripts/admin_layout.js"></script>
 </body>
 </html>
