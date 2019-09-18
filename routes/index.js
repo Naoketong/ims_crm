@@ -4,6 +4,7 @@ var userController = require('./../controllers/user.js');
 var classifyrController = require('./../controllers/classify.js');
 var articleController = require('./../controllers/article.js');
 var authController = require('./../controllers/auth.js');
+var pageController = require('./../controllers/page.js');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -26,8 +27,6 @@ router.get('/admin/user/create',/*authMiddleware.mustLogin,*/ function(req, res,
   res.render('admin/user_create');
 });
 
-
-
 router.get('/admin/classify', classifyrController.list);
 router.get('/admin/classify/:id/edit',/*authMiddleware.mustLogin,*/ function(req, res, next) {
   res.render('admin/classify_edit');
@@ -37,12 +36,18 @@ router.get('/admin/classify/create',/*authMiddleware.mustLogin,*/ function(req, 
 });
 
 
-
-
 router.get('/admin/article',articleController.list);
 router.get('/admin/article/create',articleController.addArticle);
 router.get('/admin/article/:id/edit',articleController.classify);
 
 router.get('/admin/login', authController.renderLogin);
+
+
+// 展示页
+router.get('/admin/page', function(req, res, next) {
+	res.render('displayPage/page')
+});
+router.get('/admin/page/article',pageController.list);
+router.get('/admin/page/article/:id',pageController.show);
 
 module.exports = router;

@@ -5,6 +5,7 @@ let userControllers = require('./../controllers/user')
 let articleControllers = require('./../controllers/article')
 let classifyControllers = require('./../controllers/classify')
 let authController = require('./../controllers/auth.js');
+let pageController = require('./../controllers/page.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -35,6 +36,10 @@ router.delete('/classify/:id' ,classifyControllers.delete);
 
 // 登录
 router.post('/login',authController.login )
+
+// 展示页
+router.get('/page/article', pageController.list);
+router.get('/page/article/:id', pageController.show);
 
 
 
