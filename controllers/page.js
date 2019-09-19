@@ -18,8 +18,6 @@ const pageControllers = {
 			res.locals.classify = classify;
       res.locals.article = article;
 			res.render('displayPage/pageDetails.tpl',res.locals);
-
-
       // res.json({
       //   code:200,
       //   data: article
@@ -45,10 +43,7 @@ const pageControllers = {
 			res.locals.article = article;
 			let classify = await Classify.all();
 			res.locals.classify = classify;
-
-			
 			res.render('displayPage/pageArticle.tpl',res.locals);
-
 			// res.json({
 			// 	code:200,
 			// 	message:'获取成功',
@@ -62,7 +57,6 @@ const pageControllers = {
 			})
 		}
 	},
-	
   classify: async function(req,res,next) {
   	let id = req.params.id;
 		try{
@@ -82,12 +76,8 @@ const pageControllers = {
 			})
 		}
 	},
-	
-
 	classifyArticle: async function(req,res,next){
 		let id = req.params.id;
-		// console.log(classify_id)
-
 		try{
 			const classifyContent = await Classify
 			.where({'classify.id':id})

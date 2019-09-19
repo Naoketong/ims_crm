@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <title>{{title}}</title>
-  <!-- <link rel="stylesheet" href="/stylesheets/reset.css"/> -->
   <link rel="stylesheet" href="/stylesheets/admin_layout.css"/>
   {% block css %}
   {% endblock %}
