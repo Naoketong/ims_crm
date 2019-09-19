@@ -26,7 +26,9 @@
           
             <li class="page-nav">
               <div class="page-nav-item button" style="cursor: pointer;">文章分类</div>
-              <a class="page-nav-item child">分类</a>
+              {% for val in classify %}
+              <a href="/admin/page/classify/{{val.id}}" class="page-nav-item child">{{val.name}}</a>
+              {% endfor %}
             </li>
           </ul>
         </nav>
@@ -40,8 +42,9 @@
   </div>
 
     {% block js %}
-    <script src="/javascripts/jquery-3.3.1.min.js"></script>
+    
     {% endblock %}
+    <script src="/javascripts/jquery-3.3.1.min.js"></script>
   <script src="/javascripts/admin_layout.js"></script>
 </body>
 </html>

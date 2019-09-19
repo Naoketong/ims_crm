@@ -38,8 +38,11 @@ router.delete('/classify/:id' ,classifyControllers.delete);
 router.post('/login',authController.login )
 
 // 展示页
+router.get('/page', pageController.classify);
 router.get('/page/article', pageController.list);
 router.get('/page/article/:id', pageController.show);
+router.get('/page/classify/:id', pageController.classifyArticle);
+
 
 
 

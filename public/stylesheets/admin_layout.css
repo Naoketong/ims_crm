@@ -103,6 +103,7 @@ a{
 .page-nav.active .page-nav-item.child{
 	height: 60px;
   line-height: 50px;
+  cursor: pointer;
 }
 .page-nav-li{
   border-bottom: 1px solid #999;

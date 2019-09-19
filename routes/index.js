@@ -44,10 +44,9 @@ router.get('/admin/login', authController.renderLogin);
 
 
 // 展示页
-router.get('/admin/page', function(req, res, next) {
-	res.render('displayPage/page')
-});
+router.get('/admin/page', pageController.classify);
 router.get('/admin/page/article',pageController.list);
 router.get('/admin/page/article/:id',pageController.show);
+router.get('/admin/page/classify/:id',pageController.classifyArticle);
 
 module.exports = router;
